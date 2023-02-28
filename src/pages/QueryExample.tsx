@@ -2,15 +2,15 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 const QueryExample: React.FC = () => {
-  const { isLoading, error, data, isFetching } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ["repoData"],
+    suspense: true,
     queryFn: () =>
       axios
         .get("https://api.github.com/repos/tannerlinsley/react-query")
         .then((res) => res.data),
   });
 
-  console.log('queryData', data);
   return (
     <div>
       <h1>{data.name}</h1>
