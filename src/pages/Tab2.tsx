@@ -1,9 +1,6 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { Suspense } from 'react';
+import { IonContent, IonHeader, IonInput, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
-import QueryExample from './QueryExample';
-import FallbackLoading from '../components/FallbackLoading';
 
 const Tab2: React.FC = () => {
   return (
@@ -20,9 +17,9 @@ const Tab2: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name="Tab 2 page" />
-        <Suspense fallback={<FallbackLoading />}>
-          <QueryExample />
-        </Suspense>
+        <IonInput label="Input (disabled=true)" disabled />
+        <IonInput label="Input (disabled=false)" disabled={false} />
+        <IonInput label="Input (disabled not set)" />
       </IonContent>
     </IonPage>
   );
